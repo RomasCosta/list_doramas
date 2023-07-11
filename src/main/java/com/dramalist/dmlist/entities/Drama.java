@@ -30,19 +30,23 @@ public class Drama {
     private Integer year;
     private String genre;
     private String platform;
+    private Double Score;
     private String imgUrl;
     private String shortDescription;
+    
+    @Column(columnDefinition = "TEXT")//pro bd entender que não será um VARCHAR de 255characteres
     private String longDescription;
     
     public Drama() {
     }
 
-    public Drama(Long id, String title, Integer year, String genre, String platform, String imgUrl, String shortDescription, String longDescription) {
+    public Drama(Long id, String title, Integer year, String genre, String platform, Double Score, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
         this.year = year;
         this.genre = genre;
         this.platform = platform;
+        this.Score = Score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -86,6 +90,14 @@ public class Drama {
 
     public void setPlatform(String platform) {
         this.platform = platform;
+    }
+    
+     public Double getScore() {
+        return Score;
+    }
+
+    public void setScore(Double Score) {
+        this.Score = Score;
     }
 
     public String getImgUrl() {
