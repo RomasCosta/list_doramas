@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/dramas")
-public class DramaConroller {
+public class DramaController {
     
     @Autowired
     private DramaService service;
