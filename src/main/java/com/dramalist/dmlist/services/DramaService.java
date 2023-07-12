@@ -4,12 +4,14 @@
  */
 package com.dramalist.dmlist.services;
 
+import com.dramalist.dmlist.dto.DramaDTO;
 import com.dramalist.dmlist.dto.DramaMinDTO;
 import com.dramalist.dmlist.entities.Drama;
 import com.dramalist.dmlist.repositories.DramaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -21,6 +23,14 @@ public class DramaService {
     @Autowired
     private DramaRepository repository;
     
+    @Transactional(readOnly = true)
+    public DramaDTO findById(Long id) {
+        Drama result = repository.findById(id).get();
+        DramaDTO dto = new DramaDTO(result);
+        return dto;
+    }
+    
+    @Transactional(readOnly = true)
     public List<DramaMinDTO> findAll() {
         List<Drama> result = repository.findAll();
         List<DramaMinDTO> dto = result.stream().map(x -> new DramaMinDTO(x)).toList();
