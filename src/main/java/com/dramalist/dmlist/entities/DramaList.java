@@ -16,7 +16,7 @@ import java.util.Objects;
  * @author romar
  */
 @Entity
-@Table(name = "tb_game_list")
+@Table(name = "tb_drama_list")
 public class DramaList {
     
     @Id
