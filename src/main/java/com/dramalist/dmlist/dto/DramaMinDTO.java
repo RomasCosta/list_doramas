@@ -5,6 +5,7 @@
 package com.dramalist.dmlist.dto;
 
 import com.dramalist.dmlist.entities.Drama;
+import com.dramalist.dmlist.projections.DramaMinProjection;
 
 /**
  *
@@ -27,6 +28,14 @@ public class DramaMinDTO {
         year = entity.getYear();
         imgUrl = entity.getImgUrl();
         shortDescription = entity.getShortDescription();
+    }
+    
+    public DramaMinDTO(DramaMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {
