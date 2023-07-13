@@ -17,7 +17,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface DramaRepository extends JpaRepository<Drama, Long> {
     
     @Query(nativeQuery = true, value = """
-		SELECT tb_drama.id, tb_drama.title, tb_drama.drama_year AS `year`, tb_drama.img_url AS imgUrl,
+		SELECT tb_drama.id, tb_drama.title, tb_drama.drama_year AS gameYear, tb_drama.img_url AS imgUrl,
 		tb_drama.short_description AS shortDescription, tb_belonging.position
 		FROM tb_drama
 		INNER JOIN tb_belonging ON tb_drama.id = tb_belonging.drama_id
